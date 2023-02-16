@@ -2,7 +2,7 @@
   <div class="category-title">{{ name }}</div>
 </template>
 
-<script lang='ts'>
+<script lang="ts">
 import { Component, Prop, Vue } from "vue-property-decorator";
 
 @Component({})
@@ -11,7 +11,7 @@ export default class CategoryLabel extends Vue {
 }
 </script>
 
-<style lang='scss' scoped>
+<style lang="scss" scoped>
 .category-title {
   text-transform: uppercase;
   font-size: 0.8em;

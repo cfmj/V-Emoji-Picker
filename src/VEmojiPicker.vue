@@ -1,5 +1,5 @@
 <template>
-  <div id="EmojiPicker" :class="['emoji-picker', {dark}]">
+  <div id="EmojiPicker" :class="['emoji-picker', { dark }]">
     <Categories
       v-if="showCategories"
       :categories="categoriesFiltered"
@@ -50,13 +50,13 @@ export default class VEmojiPicker extends Vue {
   @Prop({ default: () => emojisDefault }) customEmojis!: IEmoji[];
   @Prop({ default: () => categoriesDefault }) customCategories!: ICategory[];
   @Prop({ default: 15 }) limitFrequently!: number;
-  @Prop({ default: 5 }) emojisByRow!: number;
+  @Prop({ default: 7 }) emojisByRow!: number;
   @Prop({ default: 4 }) stickersByRow!: number;
   @Prop({ default: false }) continuousList!: boolean;
   @Prop({ default: 32 }) emojiSize!: number;
   @Prop({ default: 64 }) stickerSize!: number;
   @Prop({ default: true }) emojiWithBorder!: boolean;
-  @Prop({ default: true }) showSearch!: boolean;
+  @Prop({ default: false }) showSearch!: boolean;
   @Prop({ default: true }) showCategories!: boolean;
   @Prop({ default: false }) dark!: boolean;
   @Prop({ default: "Peoples" }) initialCategory!: string;
@@ -103,7 +103,7 @@ export default class VEmojiPicker extends Vue {
   }
 
   async updateFrequently(emoji: IEmoji) {
-    if(emoji.data.startsWith("http")){
+    if (emoji.data.startsWith("http")) {
       return;
     }
     const oldEmojis = this.mapEmojis["Frequently"];
@@ -148,8 +148,9 @@ export default class VEmojiPicker extends Vue {
   }
 
   get categoriesFiltered() {
-    return this.customCategories.filter(
-      category => !this.exceptCategories.includes(category)
+    //  !this.exceptCategories.includes(category)
+    return this.customCategories.filter(category =>
+      category.name.startsWith("Peoples")
     );
   }
 
@@ -177,11 +178,11 @@ export default class VEmojiPicker extends Vue {
 
 <style lang="scss" scoped>
 .emoji-picker {
-  --ep-color-bg: #f0f0f0;
+  --ep-color-bg: #fff;
   --ep-color-sbg: #f6f6f6;
-  --ep-color-border: #e4e4e4;
+  --ep-color-border: #d8dde5;
   --ep-color-text: #4a4a4a;
-  --ep-color-active: #009688;
+  --ep-color-active: #0078ff;
 
   display: inline-flex;
   -webkit-font-smoothing: antialiased;
@@ -190,21 +191,22 @@ export default class VEmojiPicker extends Vue {
   flex-direction: column;
   align-items: center;
   background-color: var(--ep-color-bg);
-  border-radius: 4px;
-  border: 1px solid var(--ep-color-border);
+  border-radius: 8px;
+  // border: 1px solid var(--ep-color-border);
+  box-shadow: 0px 0px 8px 0px rgba(0, 22, 47, 0.15);
   overflow: hidden;
-  width: 325px;
+  width: 372px;
   user-select: none;
 
-  @media screen and (max-width: 325px) {
+  @media screen and (max-width: 372px) {
     width: 100%;
   }
 }
 
 .dark {
-  --ep-color-bg: #191B1A;
+  --ep-color-bg: #191b1a;
   --ep-color-sbg: #212221;
-  --ep-color-border: #3E3D42;
+  --ep-color-border: #3e3d42;
   --ep-color-text: #f0f0f0;
   --ep-color-active: #009688;
 }

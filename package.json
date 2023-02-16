@@ -1,10 +1,8 @@
 {
-  "name": "@imndx/v-emoji-picker",
+  "name": "@wf/v-emoji-picker",
   "version": "2.3.7",
   "author": {
-    "name": "imndx",
-    "email": "imndxxgmail.com",
-    "url": "https://github.com/imndx"
+    "name": "cfmj"
   },
   "scripts": {
     "serve": "vue-cli-service serve --open",
@@ -70,12 +68,12 @@
     "last 2 versions",
     "not ie <= 8"
   ],
-  "homepage": "https://github.com/imndx/V-Emoji-Picker#readme",
+  "homepage": "https://github.com/cfmj/V-Emoji-Picker#readme",
   "keywords": [
     "sticker",
     "emoji",
     "unicode"
   ],
   "license": "MIT",
-  "repository": "https://github.com/imndx/V-Emoji-Picker"
+  "repository": "https://github.com/cfmj/V-Emoji-Picker"
 }

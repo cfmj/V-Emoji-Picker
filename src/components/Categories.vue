@@ -35,34 +35,42 @@ export default class Categories extends Vue {
 
 <style lang="scss" scoped>
 #Categories {
+  box-sizing: border-box;
   display: flex;
   width: 100%;
-  flex-direction: row;
   align-items: center;
   border-bottom: 1px solid var(--ep-color-border);
   background: var(--ep-color-bg);
   overflow-x: auto;
+  height: 56px;
+  padding: 16px 20px 0;
 }
 
 .category {
-  flex: 1;
-  padding: 5px;
+  box-sizing: border-box;
+  height: 100%;
+  margin-right: 20px;
+  padding-bottom: 16px;
   text-align: center;
   cursor: pointer;
 
   &.active {
-    border-bottom: 3px solid var(--ep-color-active);
+    border-bottom: 2px solid var(--ep-color-active);
     filter: saturate(3);
-    padding-bottom: 2px;
+    padding-bottom: 14px;
   }
 
   & > img {
-    width: 22px;
-    height: 22px;
+    width: 24px;
+    height: 24px;
   }
 
   &:hover {
     filter: saturate(3);
   }
+}
+
+.category:last-of-type {
+  margin-right: 0;
 }
 </style>

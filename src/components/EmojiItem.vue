@@ -1,11 +1,15 @@
 <template>
-  <span :class="['emoji-c', { 'border': withBorder } ]" :style="styleSize" v-html="uemoji(emoji.data)"/>
+  <span
+    :class="['emoji-c', { border: withBorder }]"
+    :style="styleSize"
+    v-html="uemoji(emoji.data)"
+  />
 </template>
 
 <script lang="ts">
-import {Component, Prop, Vue} from "vue-property-decorator";
-import {IEmoji} from "@/models/Emoji";
-import uEmojiParser from 'universal-emoji-parser';
+import { Component, Prop, Vue } from "vue-property-decorator";
+import { IEmoji } from "@/models/Emoji";
+import uEmojiParser from "universal-emoji-parser";
 
 @Component({})
 export default class EmojiItem extends Vue {
@@ -25,8 +29,11 @@ export default class EmojiItem extends Vue {
   uemoji(data) {
     let tmp = uEmojiParser.parse(data);
     // window.__twemoji_base_url__ = 'https://static.wildfirechat.net/twemoji/assets/';
-    if(window.hasOwnProperty('__twemoji_base_url__')){
-      tmp = tmp.replace(/src="https:\/\/twemoji\.maxcdn\.com\/v\/[0-9.]+\//g, 'src="' + window.__twemoji_base_url__);
+    if (window.hasOwnProperty("__twemoji_base_url__")) {
+      tmp = tmp.replace(
+        /src="https:\/\/twemoji\.maxcdn\.com\/v\/[0-9.]+\//g,
+        'src="' + window.__twemoji_base_url__
+      );
     }
     return tmp;
   }
@@ -46,9 +53,9 @@ export default class EmojiItem extends Vue {
   justify-content: center;
   align-items: center;
 
-  &:hover {
-    transform: scale(1.15);
-  }
+  // &:hover {
+  //   transform: scale(1.15);
+  // }
 
   ::v-deep img {
     width: 28px;
@@ -57,7 +64,7 @@ export default class EmojiItem extends Vue {
 }
 
 .border:hover {
-  background: #00000010;
-  border-radius: 8px;
+  background: rgba(0, 22, 47, 0.07);
+  border-radius: 4px;
 }
 </style>

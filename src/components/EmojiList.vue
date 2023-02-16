@@ -2,8 +2,15 @@
   <div id="Emojis">
     <div ref="container-emoji" class="container-emoji">
       <template v-if="continuousList">
-        <div v-for="(category, category_name) in dataFilteredByCategory" :key="category_name">
-          <CategoryLabel v-show="category.length" :name="category_name" :ref="category_name" />
+        <div
+          v-for="(category, category_name) in dataFilteredByCategory"
+          :key="category_name"
+        >
+          <CategoryLabel
+            v-show="category.length"
+            :name="category_name"
+            :ref="category_name"
+          />
           <div v-if="category.length" class="grid-emojis" :style="gridDynamic">
             <EmojiItem
               v-for="(emoji, index_e) in category"
@@ -17,7 +24,11 @@
         </div>
       </template>
       <template v-else>
-        <div v-if="category.indexOf('Sticker-') === -1" class="grid-emojis" :style="gridDynamic">
+        <div
+          v-if="category.indexOf('Sticker-') === -1"
+          class="grid-emojis"
+          :style="gridDynamic"
+        >
           <EmojiItem
             v-for="(emoji, index) in dataFiltered"
             :key="index"
@@ -29,12 +40,12 @@
         </div>
         <div v-else class="grid-emojis" :style="stickerGridDynamic">
           <StickerItem
-              v-for="(emoji, index) in dataFiltered"
-              :key="index"
-              :emoji="emoji"
-              :size="stickerSize"
-              :withBorder="emojiWithBorder"
-              @click.native="onSelect(emoji)"
+            v-for="(emoji, index) in dataFiltered"
+            :key="index"
+            :emoji="emoji"
+            :size="stickerSize"
+            :withBorder="emojiWithBorder"
+            @click.native="onSelect(emoji)"
           />
         </div>
       </template>
@@ -82,7 +93,8 @@ export default class EmojiList extends Vue {
   get gridDynamic() {
     const percent = 100 / this.emojisByRow;
     return {
-      gridTemplateColumns: `repeat(${this.emojisByRow}, ${percent}%)`
+      gridTemplateColumns: `repeat(${this.emojisByRow}, ${percent}%)`,
+      rowGap: "16px"
     };
   }
 
@@ -160,7 +172,6 @@ export default class EmojiList extends Vue {
   max-width: 100%;
   color: var(--ep-color-text);
 
-
   // Custom Scroll
   ::-webkit-scrollbar {
     border-radius: 4px;
@@ -172,7 +183,8 @@ export default class EmojiList extends Vue {
 .container-emoji {
   overflow-x: hidden;
   overflow-y: scroll;
-  height: 350px;
+  height: 312px;
+  padding: 8px 6px;
 }
 
 .grid-emojis {

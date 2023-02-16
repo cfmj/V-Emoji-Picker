@@ -23,5 +23,7 @@ export default class CategoryItem extends Vue {
 .svg {
   display: inline-block;
   vertical-align: middle;
+  width: 24px;
+  height: 24px;
 }
 </style>
