@@ -1,6 +1,6 @@
 {
   "name": "@wfweb/v-emoji-picker",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "author": {
     "name": "cfmj"
   },
@@ -10,7 +10,7 @@
     "build:app": "vue-cli-service build --modern",
     "lint": "vue-cli-service lint",
     "test:unit": "vue-cli-service test:unit",
-    "prepublishOnly": "yarn build"
+    "prepublishOnly": "rollup -c"
   },
   "main": "./lib/v-emoji-picker.cjs.js",
   "module": "./lib/v-emoji-picker.esm.js",
@@ -75,5 +75,5 @@
     "unicode"
   ],
   "license": "MIT",
-  "repository": "https://github.com/cfmj/V-Emoji-Picker"
+  "repository": ""
 }
