@@ -182,7 +182,7 @@ export default class VEmojiPicker extends Vue {
   --ep-color-sbg: #f6f6f6;
   --ep-color-border: #d8dde5;
   --ep-color-text: #4a4a4a;
-  --ep-color-active: #0078ff;
+  --ep-color-active: #0ad47e;
 
   display: inline-flex;
   -webkit-font-smoothing: antialiased;
