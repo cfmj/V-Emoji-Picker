@@ -56,7 +56,7 @@ export default class Categories extends Vue {
 
   &.active {
     border-bottom: 2px solid var(--ep-color-active);
-    filter: saturate(3);
+    //   filter: saturate(3);
     padding-bottom: 14px;
   }
 
